@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { accountSelector } from '../store/selectors'
 
@@ -33,4 +33,4 @@ function mapStatetoProps(state) {
   }
 }
 
-export default connect(mapStatetoProps)(Navbar);
+export default connect(mapStatetoProps)(Navbar)

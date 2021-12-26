@@ -49,6 +49,7 @@ export const loadAccount = async (web3, dispatch) => {
 }
 
 export const loadToken = async (web3, networkId, dispatch) => {
+  console.log("address", Token.networks)
 	try {
 		const token = new web3.eth.Contract(Token.abi, Token.networks[networkId].address)
 		dispatch(tokenLoaded(token))

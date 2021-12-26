@@ -10,7 +10,7 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
-      port: 8545,
+      port: 6969,
       network_id: "*"
     },
     kovan: {
