@@ -3,14 +3,10 @@ pragma solidity ^0.5.0;
 import "./Token.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
-
-// TODO:
-// [X] Set the fee account
-// [ ] Deposit ether, set the fee, set the account
-// [ ] 
-
 contract Exchange {
 	using SafeMath for uint;
+
+	// Variables
 	address public feeAccount;
 	uint256 public feePercent;
 	address constant ETHER = address(0);
@@ -20,7 +16,7 @@ contract Exchange {
 	mapping(uint256 => bool) public orderCancelled;
 	mapping(uint256 => bool) public orderFilled;
 
-	//Events
+	// Events
 	event Deposit(address token, address user, uint256 amount, uint256 balance);
 	event Withdraw(address token, address user, uint256 amount, uint256 balance);
 	event Order(
@@ -32,7 +28,6 @@ contract Exchange {
 		uint256 amountGive,
 		uint256 timestamp
 	);
-
 	event Cancel(
 		uint256 id,
 		address user,
@@ -42,7 +37,6 @@ contract Exchange {
 		uint256 amountGive,
 		uint256 timestamp
 	);
-
 	event Trade(
 		uint256 id,
 		address user,
@@ -138,9 +132,3 @@ contract Exchange {
 		emit Trade(_orderId, _user, _tokenGet, _amountGet, _tokenGive, _amountGive, msg.sender, now);
 	}
 }
-
-// Deposit & Withdraw Funds
-// Manage Orders - Make or Cancel
-// Handle Trades - Charge fees
-
-

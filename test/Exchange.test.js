@@ -15,13 +15,12 @@ contract('Exchange', ([deployer, feeAccount, user1, user2]) => {
 	beforeEach(async () => {
 		// Deploy Token
 		token = await Token.new()
-		
+
 		// Transfer some tokens to user1
 		token.transfer(user1, tokens(100), {from:deployer})
 
 		// Deploy exchange
 		exchange = await Exchange.new(feeAccount, feePercent)
-
 	})
 
 	describe('deployment', () => {
@@ -29,12 +28,12 @@ contract('Exchange', ([deployer, feeAccount, user1, user2]) => {
 			const result = await exchange.feeAccount()
 			result.should.equal(feeAccount)
 		})
+
 		it('tracks the fee percent', async () => {
 			const result = await exchange.feePercent()
 			result.toString().should.equal(feePercent.toString())
 		})
 	})
-
 
 	describe('reverts when Ether is sent', async () => {
 		it('reverts when Ether is sent', async () => {
@@ -190,7 +189,7 @@ contract('Exchange', ([deployer, feeAccount, user1, user2]) => {
 
 	describe('checking balances', async () => {
 		beforeEach(async () => {
-			exchange.depositEther({ from: user1, value: ether(1)})
+			await exchange.depositEther({ from: user1, value: ether(1)})
 		})
 
 		it('returns user balance', async () => {
