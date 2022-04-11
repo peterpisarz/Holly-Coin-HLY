@@ -19,7 +19,6 @@ class App extends Component {
   async loadBlockchainData(dispatch) {
     const web3 = await loadWeb3(dispatch)
     const networkId = await web3.eth.net.getId()
-    console.log("networkId", networkId)
     await loadAccount(web3, dispatch)
     const token = await loadToken(web3, networkId, dispatch)
     if(!token) {
@@ -31,7 +30,6 @@ class App extends Component {
       window.alert('Exchange smart contract not detected on the current network. Please select another network with Metamask.')
       return
     }
-
   }
 
   render() {
