@@ -100,7 +100,6 @@ export function exchangeEtherBalanceLoaded(balance) {
   }
 }
 
-
 export function exchangeTokenBalanceLoaded(balance) {
   return {
     type: 'EXCHANGE_TOKEN_BALANCE_LOADED',

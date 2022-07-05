@@ -1,11 +1,11 @@
 import { get, groupBy, reject, maxBy, minBy } from 'lodash'
 import { createSelector } from 'reselect'
 import moment from 'moment'
-import { ETHER_ADDRESS, GREEN, RED, tokens, ether} from '../helpers'
+import { ETHER_ADDRESS, GREEN, RED, ether, tokens} from '../helpers'
 
-//TODO: Move to helpers file
+//TODO: Move me to helpers file
 export const formatBalance = (balance) => {
-  const precision = 100
+  const precision = 100 // 2 decimal places
 
   balance = ether(balance)
   balance = Math.round(balance * precision) / precision // Use 2 decimal places
@@ -326,7 +326,7 @@ const orderCancelling = state => get(state, 'exchange.orderCancelling', false)
 export const orderCancellingSelector = createSelector(orderCancelling, status => status)
 
 const orderFilling = state => get(state, 'exchange.orderFilling', false)
-export const orderFillingSelector = createSelector(orderFilling, status=> status)
+export const orderFillingSelector = createSelector(orderFilling, status => status)
 
 // BALANCES
 const balancesLoading = state => get(state, 'exchange.balancesLoading', true)
